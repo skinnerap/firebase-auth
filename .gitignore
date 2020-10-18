@@ -24,4 +24,4 @@ yarn-error.log*
 
 
 .env
-src/config/fire.js
+src/config/
