@@ -1,5 +1,6 @@
 .Container {
     display: flex;
+    flex-flow: column;
     width: 100%;
     height: 100vh;
     justify-content: center;
@@ -8,6 +9,11 @@
 .Register, .Login {
     padding: 10px;   
     align-content: center;
+    justify-content: center;
+}
+
+.Register {
+    padding-bottom: 20px;
 }
 
 div.Register, div.Login {
@@ -17,4 +23,12 @@ div.Register, div.Login {
 }
 div.Register label, div.Login label {
     text-align:right; 
+}
+
+.RegisterButton, .LoginButton {
+    align-self: center;
+}
+
+.inputDanger {
+    border: 1px solid rgb(255, 0, 0);
 }
