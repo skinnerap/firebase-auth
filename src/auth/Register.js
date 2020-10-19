@@ -13,7 +13,12 @@ class Register extends Component {
         firstName: null,
         lastName: null,
         birthday: null,
-        focusEmail: false
+        focusEmail: false,
+        focusPassword: false,
+        focusPasswordConfirm: false,
+        focusPhoneNumber: false,
+        focusFirstName: false,
+        focusLastName: false
     }
 
     emailInputHandler = (e) => {
@@ -48,6 +53,12 @@ class Register extends Component {
         if(!this.state.email) {
             this.setState({focusEmail: true})
         } else this.setState({focusEmail: false})
+    }
+
+    phoneNumberBlurHandler = () => {
+        if(!this.state.phoneNumber) {
+            this.setState({focusPhoneNumber: true})
+        } else this.setState({focusPhoneNumber: false})
     }
 
     registrationHandler = () => {
@@ -97,9 +108,16 @@ class Register extends Component {
         return inputClass;
     }
 
+    getPhoneNumberClass = () => {
+        let inputClass = "";
+        if(this.state.focusPhoneNumber) inputClass = classes.inputDanger;
+        return inputClass;
+    }
+
     render() {
 
         const inputEmailClass = this.getEmailClass();
+        const inputPhoneNumberClass = this.getPhoneNumberClass();
 
         return (
             <Router>
@@ -115,7 +133,7 @@ class Register extends Component {
                         <input type='text' name="passwordConfirm" placeholder='Confirm Password' onChange={(e) => this.passwordConfirmInputHandler(e)} />
 
                         <label htmlFor="phoneNumber">Phone Number: </label>
-                        <input type='text' name="phoneNumber" placeholder='Phone Number' onChange={(e) => this.phoneNumberInputHandler(e)} />
+                        <input className={inputPhoneNumberClass} type='text' name="phoneNumber" placeholder='Phone Number' onBlur={this.phoneNumberBlurHandler} onChange={(e) => this.phoneNumberInputHandler(e)} />
                     
                         <label htmlFor="firstName">First Name: </label>
                         <input type='text' name="firstName" placeholder='First Name' onChange={(e) => this.firstNameInputHandler(e)} />
