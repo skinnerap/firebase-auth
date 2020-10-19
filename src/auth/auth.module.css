@@ -30,5 +30,9 @@ div.Register label, div.Login label {
 }
 
 .inputDanger {
-    border: 1px solid rgb(255, 0, 0);
+    border: 3px solid rgb(168, 4, 4);   
+}
+
+.inputDanger::placeholder {
+    color: rgb(168, 4, 4);
 }
